@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      enabled: false   # Avoid searching config-server
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true

@@ -1,0 +1,29 @@
+server:
+  port: 9000
+  address: 127.0.0.1   # force localhost binding
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: STUDENTSERVICE
+          uri: lb://STUDENTSERVICE
+          predicates:
+            - Path=/students/**
+        - id: SCHOOLSERVICE
+          uri: lb://SCHOOLSERVICE
+          predicates:
+            - Path=/schools/**
+
+eureka:
+  instance:
+    hostname: localhost            # force Eureka hostname
+    prefer-ip-address: true        # use IP instead of machine name
+    instance-id: ${spring.application.name}:${server.port}  # override ID
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
