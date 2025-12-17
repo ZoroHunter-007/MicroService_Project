@@ -12,7 +12,7 @@ import lombok.Setter;
 
 public class StudentResponse {
 
-	private String id;
+	private Long id;
 	private String studName;
 	private int age;
 	private String gender;

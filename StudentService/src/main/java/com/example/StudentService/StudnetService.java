@@ -20,7 +20,7 @@ public class StudnetService {
 	
 	public ResponseEntity<?>CreateStudent(Student stud){
 		try {
-			 stud.setId(UUID.randomUUID().toString());
+			
 			return new ResponseEntity<Student>(studentRepo.saveAndFlush(stud),HttpStatus.OK);
 		}
 		catch(Exception e) {
@@ -29,7 +29,7 @@ public class StudnetService {
 		
 	}
 	
-	public ResponseEntity<?>fetchStudentByd(String id){
+	public ResponseEntity<?>fetchStudentByd(Long id){
 	
 	Optional<Student> stud=studentRepo.findById(id);
 	if(stud.isPresent()) {

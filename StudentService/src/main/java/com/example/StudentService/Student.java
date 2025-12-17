@@ -23,8 +23,8 @@ import lombok.ToString;
 public class Student {
 
 	@Id
-	
-	private String id;
+	@GeneratedValue
+	private Long id;
 	@Column
 	private String studName;
 	@Column

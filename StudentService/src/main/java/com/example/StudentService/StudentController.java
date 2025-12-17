@@ -25,7 +25,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?>FetchStudent(@PathVariable String id){
+	public ResponseEntity<?>FetchStudent(@PathVariable Long id){
 		return studnetService.fetchStudentByd(id);
 	}
 }
